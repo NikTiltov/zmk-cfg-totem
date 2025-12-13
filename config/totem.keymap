@@ -83,7 +83,7 @@
         lang_toggle: lang_toggle {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT &kp LEFT_ALT &tog 3>;
+            bindings = <&kp LS(LEFT_ALT) &tog 3>;
             label = "LANG_TOGGLE";
         };
     };
