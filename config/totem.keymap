@@ -41,7 +41,7 @@
         underscore2pipe: underscore2pipe {
             compatible = "zmk,behavior-mod-morph";
             label = "UNDERSCORE2PIPE";
-            bindings = <&kp UNDERSCORE>, <&kp PIPE>;
+            bindings = <&kp PIPE>, <&kp UNDERSCORE>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
