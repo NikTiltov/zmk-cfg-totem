@@ -40,7 +40,7 @@
     behaviors {
         underscore2pipe: underscore2pipe {
             compatible = "zmk,behavior-mod-morph";
-            bindings = <&kp PIPE>, <&kp UNDERSCORE>;
+            bindings = <&kp UNDERSCORE>, <&kp PIPE>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
@@ -49,7 +49,7 @@
 
         slash2backslash: slash2backslash {
             compatible = "zmk,behavior-mod-morph";
-            bindings = <&kp BACKSLASH>, <&kp SLASH>;
+            bindings = <&kp SLASH>, <&kp BACKSLASH>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
