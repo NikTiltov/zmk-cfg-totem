@@ -37,6 +37,28 @@
         };
     };
 
+    behaviors {
+        underscore2pipe: underscore2pipe {
+            compatible = "zmk,behavior-mod-morph";
+            label = "UNDERSCORE2PIPE";
+            bindings = <&kp UNDERSCORE>, <&kp PIPE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+            keep-mods = <(MOD_LSFT)>;
+        };
+
+        slash2backslash: slash2backslash {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SLASH2BACKSLASH";
+            bindings = <&kp SLASH>, <&kp BACKSLASH>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+            keep-mods = <(MOD_LSFT)>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -56,19 +78,19 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-           &kp APOS        &kp Q       &kp W        &kp E        &kp R        &kp T          &kp Y        &kp U        &kp I       &kp GRAVE
-           &mt LGUI P      &mt LALT A  &mt LCTRL S  &mt LSHFT D  &kp F        &kp G          &mt RSHFT H  &mt RCTRL J  &mt RALT K  &mt L O
-&kp COMMA  &kp UNDERSCORE  &kp Z       &kp X        &kp C        &kp V        &kp B          &kp N        &kp M        &kp O       &kp SLASH  &kp PERIOD
-                                       &kp ENTER    &lt 2 TAB    &kp SPACE    &kp BACKSPACE  &lt 2 DEL    &kp ESCAPE
+           &kp APOS        &kp Q       &kp W        &kp E        &kp R        &kp T          &kp Y             &kp U        &kp I           &kp GRAVE
+           &mt LGUI P      &mt LALT A  &mt LCTRL S  &mt LSHFT D  &kp F        &kp G          &mt LEFT_SHIFT H  &mt LCTRL J  &mt LEFT_ALT K  &mt LEFT_GUI L
+&kp COMMA  &kp UNDERSCORE  &kp Z       &kp X        &kp C        &kp V        &kp B          &kp N             &kp M        &kp O           &kp SLASH       &kp PERIOD
+                                       &kp ENTER    &lt 2 TAB    &kp SPACE    &kp BACKSPACE  &lt 2 DEL         &kp ESCAPE
             >;
         };
 
         game {
             bindings = <
-          &kp LALT   &trans  &kp W   &trans  &trans    &trans  &trans    &kp UP    &trans     &kp LALT
-          &kp LSHFT  &kp A   &kp S   &kp D   &trans    &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LSHFT
-&kp LGUI  &kp LCTRL  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans     &kp LCTRL  &kp LGUI
-                             &trans  &trans  &trans    &trans  &trans    &trans
+        &kp LALT   &trans  &kp W   &trans  &trans    &trans  &trans    &kp UP    &trans     &kp LALT
+        &kp LSHFT  &kp A   &kp S   &kp D   &trans    &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LSHFT
+&trans  &kp LCTRL  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans     &kp LCTRL  &trans
+                           &trans  &trans  &trans    &trans  &trans    &trans
             >;
         };
 
