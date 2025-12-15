@@ -109,7 +109,7 @@
             bindings = <
            &kp APOS          &kp Q       &kp W             &kp E        &kp R        &kp T          &kp Y        &kp U             &kp I           &kp GRAVE
            &mt LGUI P        &mt LALT A  &mt LEFT_SHIFT S  &mt LCTRL D  &kp F        &kp G          &mt LCTRL H  &mt LEFT_SHIFT J  &mt LEFT_ALT K  &mt LEFT_GUI L
-&kp COMMA  &underscore2pipe  &kp Z       &kp X             &kp C        &kp V        &kp B          &kp N        &kp M             &kp O           &slash2backslash  &lt 1 LA(PERIOD)
+&kp COMMA  &underscore2pipe  &kp Z       &kp X             &kp C        &kp V        &kp B          &kp N        &kp M             &kp O           &slash2backslash  &lt 1 PERIOD
                                          &kp ENTER         &lt 2 TAB    &kp SPACE    &kp BACKSPACE  &lt 2 DEL    &kp ESCAPE
             >;
         };
