@@ -37,14 +37,34 @@
             key-positions = <31 20>;
         };
 
-        lang_tgl {
-            bindings = <&lang_toggle>;
+        en {
+            bindings = <&en>;
             key-positions = <20 34>;
+        };
+
+        esc {
+            bindings = <&kp ESC>;
+            key-positions = <1 0>;
+        };
+
+        ret {
+            bindings = <&kp RET>;
+            key-positions = <8 9>;
+        };
+
+        bt {
+            bindings = <&mo 5>;
+            key-positions = <9 19 30>;
+        };
+
+        ru {
+            bindings = <&ru>;
+            key-positions = <31 35>;
         };
     };
 
     behaviors {
-        underscore2pipe: underscore2pipe {
+        under2pipe: under2pipe {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp UNDERSCORE>, <&kp PIPE>;
 
@@ -78,14 +98,43 @@
             #binding-cells = <0>;
             bindings = <&kp T>, <&kp GRAVE>;
         };
+
+        period2colon: period2colon {
+            compatible = "zmk,behavior-mod-morph";
+            bindings = <&kp PERIOD>, <&kp COLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        comma2semi: comma2semi {
+            compatible = "zmk,behavior-mod-morph";
+            bindings = <&kp COMMA>, <&kp SEMI>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        exc2que: exc2que {
+            compatible = "zmk,behavior-mod-morph";
+            bindings = <&kp EXCLAMATION>, <&kp QUESTION>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     macros {
-        lang_toggle: lang_toggle {
+        en: en {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(LEFT_ALT) &tog 3>;
-            label = "LANG_TOGGLE";
+            bindings = <&kp LANG1 &to 0>;
+        };
+
+        ru: ru {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANG2 &to 3>;
         };
     };
 
@@ -94,24 +143,12 @@
 
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-        base {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-            //             ┃     Q     ┃     W     ┃     F     ┃     P     ┃     G     ┃   ┃     J     ┃     L     ┃     U     ┃     Y     ┃     ;     ┃
-            //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-            //             ┃     A     ┃     R     ┃     S     ┃     T     ┃     D     ┃   ┃     H     ┃     N     ┃     E     ┃     I     ┃     O     ┃
-            // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-            // ┃     Q     ┃     Z     ┃     X     ┃     C     ┃     V     ┃     B     ┃   ┃     K     ┃     M     ┃     ,     ┃     .     ┃     /     ┃     \     ┃
-            // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            //                                     ┃    DEL    ┃    TAB    ┃    SPC    ┃   ┃   ENTER   ┃           ┃   BSPC    ┃
-            //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-
+        en {
             bindings = <
-           &kp APOS          &kp Q       &kp W             &kp E        &kp R        &kp T          &kp Y        &kp U             &kp I           &kp GRAVE
-           &mt LGUI P        &mt LALT A  &mt LEFT_SHIFT S  &mt LCTRL D  &kp F        &kp G          &mt LCTRL H  &mt LEFT_SHIFT J  &mt LEFT_ALT K  &mt LEFT_GUI L
-&kp COMMA  &underscore2pipe  &kp Z       &kp X             &kp C        &kp V        &kp B          &kp N        &kp M             &kp O           &slash2backslash  &lt 1 PERIOD
-                                         &kp ENTER         &lt 2 TAB    &kp SPACE    &kp BACKSPACE  &lt 2 DEL    &kp ESCAPE
+             &kp Q             &kp W           &kp F                 &kp P      &kp B        &kp J     &kp L      &kp U                 &kp Y           &kp APOS
+             &mt LEFT_SHIFT A  &mt LEFT_ALT R  &kp S                 &kp T      &kp G        &kp M     &kp N      &kp E                 &mt LEFT_ALT I  &mt LEFT_SHIFT O
+&lt 4 COMMA  &kp Z             &kp X           &kp C                 &kp D      &kp V        &kp K     &kp H      &under2pipe           &exc2que        &slash2backslash  &lt 1 PERIOD
+                                               &mt LEFT_CONTROL RET  &lt 2 TAB  &kp SPACE    &kp BSPC  &lt 2 DEL  &mt LEFT_CONTROL ESC
             >;
         };
 
@@ -125,41 +162,38 @@
         };
 
         sym {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-            //             ┃           ┃           ┃     UP    ┃           ┃     {     ┃   ┃     }     ┃     7     ┃     8     ┃     9     ┃     +     ┃
-            //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-            //             ┃   SHIFT   ┃   LEFT    ┃    DOWN   ┃   RIGHT   ┃     [     ┃   ┃     ]     ┃     4     ┃     5     ┃     6     ┃     -     ┃
-            // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-            // ┃           ┃           ┃   P UP    ┃  C LOCK   ┃  P DOWN   ┃     (     ┃   ┃     )     ┃     1     ┃     2     ┃     3     ┃     *     ┃           ┃
-            // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            //                                     ┃           ┃    TAB    ┃    SPC    ┃   ┃    DEL    ┃     0     ┃           ┃
-            //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-
             bindings = <
-          &kp AT_SIGN   &kp MINUS  &kp EQUAL  &kp LEFT_PARENTHESIS  &kp LBRC         &kp RBRC          &kp RIGHT_PARENTHESIS  &kp AMPERSAND  &kp CARET    &kp POUND
-          &kp N0        &kp N1     &kp N2     &kp N3                &kp N4           &kp N5            &kp N6                 &kp N7         &kp N8       &kp N9
-&kp SEMI  &kp QUESTION  &kp ASTRK  &kp PLUS   &kp LEFT_BRACKET      &kp LESS_THAN    &kp GREATER_THAN  &kp RIGHT_BRACKET      &kp DOLLAR     &kp PERCENT  &kp EXCLAMATION  &kp COLON
-                                   &trans     &trans                &trans           &trans            &trans                 &trans
+          &kp CARET   &kp MINUS  &kp EQUAL  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &kp RIGHT_BRACE    &kp LEFT_BRACE    &kp AMPERSAND  &kp POUND    &kp TILDE
+          &kp N0      &kp N1     &kp N2     &kp N3                &kp N4                   &kp N5             &kp N6            &kp N7         &kp N8       &kp N9
+&kp SEMI  &kp DOLLAR  &kp PLUS   &kp ASTRK  &kp LESS_THAN         &kp GREATER_THAN         &kp RIGHT_BRACKET  &kp LEFT_BRACKET  &kp GRAVE      &kp AT_SIGN  &kp PERCENT  &kp COLON
+                                 &trans     &trans                &trans                   &trans             &trans            &trans
             >;
         };
 
         ru {
             bindings = <
-               &kp LEFT_BRACKET    &kp Q       &kp W             &kp E        &kp R        &e2yo          &kp Y        &kp U             &sha2shya       &kp P
-               &mt LGUI SEMICOLON  &mt LALT A  &mt LEFT_SHIFT S  &mt LCTRL D  &kp F        &kp G          &mt LCTRL H  &mt LEFT_SHIFT J  &mt LEFT_ALT K  &mt LEFT_GUI L
-&kp LS(SLASH)  &kp SQT             &kp Z       &kp X             &kp C        &kp V        &kp B          &kp N        &soft2hard        &kp COMMA       &kp PERIOD      &kp SLASH
-                                               &kp ENTER         &lt 2 TAB    &kp SPACE    &kp BACKSPACE  &lt 2 DEL    &kp ESCAPE
+              &kp Q             &kp W           &kp U   &kp G   &kp X        &kp SEMI  &kp K   &kp E     &kp DOT         &sha2shya
+              &mt LEFT_SHIFT F  &mt LEFT_ALT H  &kp C   &kp N   &kp L        &kp R     &kp Y   &kp T     &mt LEFT_ALT B  &mt LEFT_SHIFT J
+&kp QUESTION  &kp Z             &kp LBKT        &kp P   &kp D   &kp COMMA    &kp S     &kp V   &kp APOS  &kp A           &soft2hard        &kp SLASH
+                                                &trans  &trans  &trans       &trans    &trans  &trans
+            >;
+        };
+
+        fn {
+            bindings = <
+       &none  &kp F1  &kp F2   &kp F3   &kp F4     &none  &none  &none  &none  &kp PRINTSCREEN
+       &none  &kp F5  &kp F6   &kp F7   &kp F8     &none  &none  &none  &none  &none
+&none  &none  &kp F9  &kp F10  &kp F11  &kp F12    &none  &none  &none  &none  &none            &none
+                      &none    &none    &none      &none  &none  &none
             >;
         };
 
         bt {
             bindings = <
-            &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4      &trans  &trans  &trans  &trans  &trans
-            &trans        &trans        &trans        &trans        &trans            &trans  &trans  &trans  &trans  &trans
-&bt BT_CLR  &trans        &trans        &trans        &trans        &bt BT_CLR_ALL    &trans  &trans  &trans  &trans  &trans  &trans
-                                        &trans        &trans        &trans            &trans  &trans  &trans
+            &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4      &none  &none  &none  &none  &none
+            &none         &none         &none         &none         &none             &none  &none  &none  &none  &none
+&bt BT_CLR  &none         &none         &none         &none         &bt BT_CLR_ALL    &none  &none  &none  &none  &none  &none
+                                        &none         &none         &none             &none  &none  &none
             >;
         };
     };
