@@ -142,6 +142,8 @@
             #binding-cells = <0>;
             bindings = <&kp M &kp N &kp E &kp SPACE &kp P &kp R &kp O &kp S &kp T &kp O &kp SPACE &kp T &kp O &kp S &kp H &kp N &kp O &kp SPACE &kp O &kp T &kp SPACE &kp T &kp A &kp K &kp I &kp H &kp SPACE &kp D &kp O &kp L &kp B &kp A &kp E &kp B &kp O &kp V &kp SPACE &kp K &kp A &kp K &kp SPACE &kp T &kp I &kp SPACE &kp COLON &kp RPAR>;
             label = "PASTA";
+            wait-ms = <40>;
+            tap-ms = <40>;
         };
     };
 
