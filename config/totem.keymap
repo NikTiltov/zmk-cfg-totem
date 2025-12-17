@@ -128,13 +128,20 @@
         en: en {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LANG1 &to 0>;
+            bindings = <&kp LA(LS(NUMBER_1)) &to 0>;
         };
 
         ru: ru {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LANG2 &to 3>;
+            bindings = <&kp LA(LS(NUMBER_2)) &to 3>;
+        };
+
+        pasta: pasta {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp M &kp N &kp E &kp SPACE &kp P &kp R &kp O &kp S &kp T &kp O &kp SPACE &kp T &kp O &kp S &kp H &kp N &kp O &kp SPACE &kp O &kp T &kp SPACE &kp T &kp A &kp K &kp I &kp H &kp SPACE &kp D &kp O &kp L &kp B &kp A &kp E &kp B &kp O &kp V &kp SPACE &kp K &kp A &kp K &kp SPACE &kp T &kp I &kp SPACE &kp COLON &kp RPAR>;
+            label = "PASTA";
         };
     };
 
@@ -182,7 +189,7 @@
         fn {
             bindings = <
        &none  &kp F1  &kp F2   &kp F3   &kp F4     &none  &none  &none  &none  &kp PRINTSCREEN
-       &none  &kp F5  &kp F6   &kp F7   &kp F8     &none  &none  &none  &none  &none
+       &none  &kp F5  &kp F6   &kp F7   &kp F8     &none  &none  &none  &none  &pasta
 &none  &none  &kp F9  &kp F10  &kp F11  &kp F12    &none  &none  &none  &none  &none            &none
                       &none    &none    &none      &none  &none  &none
             >;
