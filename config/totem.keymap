@@ -141,9 +141,9 @@
 
         game {
             bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans    &kp UP    &trans     &kp LALT
-        &trans  &trans  &trans  &trans  &trans    &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LSHFT
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans     &kp LCTRL  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans     &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &kp LEFT  &kp UP    &kp RIGHT  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &kp DOWN  &trans     &trans  &trans
                         &trans  &trans  &trans    &trans  &trans    &trans
             >;
         };
