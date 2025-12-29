@@ -18,11 +18,6 @@
             key-positions = <31 20>;
         };
 
-        en {
-            bindings = <&en>;
-            key-positions = <20 34>;
-        };
-
         esc {
             bindings = <&kp ESC>;
             key-positions = <1 0>;
@@ -41,6 +36,11 @@
         ru {
             bindings = <&ru>;
             key-positions = <31 35>;
+        };
+
+        en {
+            bindings = <&en>;
+            key-positions = <20 34>;
         };
     };
 
@@ -103,6 +103,26 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
+
+        slash2backslash_game: slash2backslash_game {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&mo>, <&slash2backslash>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <170>;
+            quick-tap-ms = <100>;
+            flavor = "tap-preferred";
+        };
+
+        soft2hard_game: soft2hard_game {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&mo>, <&soft2hard>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <170>;
+            quick-tap-ms = <100>;
+            flavor = "tap-preferred";
+        };
     };
 
     macros {
@@ -132,10 +152,10 @@
 
         en {
             bindings = <
-             &kp Q             &kp W           &kp F                 &kp P      &kp B        &kp J     &kp L      &kp U                 &kp Y           &kp APOS
-             &mt LEFT_SHIFT A  &mt LEFT_ALT R  &kp S                 &kp T      &kp G        &kp M     &kp N      &kp E                 &mt LEFT_ALT I  &mt LEFT_SHIFT O
-&lt 4 COMMA  &kp Z             &kp X           &kp C                 &kp D      &kp V        &kp K     &kp H      &under2pipe           &exc2que        &slash2backslash  &lt 1 PERIOD
-                                               &mt LEFT_CONTROL RET  &lt 2 TAB  &kp SPACE    &kp BSPC  &lt 2 DEL  &mt LEFT_CONTROL ESC
+           &kp Q             &kp W           &kp F                 &kp P      &kp B        &kp J     &kp L      &kp U                 &kp Y           &kp APOS
+           &mt LEFT_SHIFT A  &mt LEFT_ALT R  &kp S                 &kp T      &kp G        &kp M     &kp N      &kp E                 &mt LEFT_ALT I  &mt LEFT_SHIFT O
+&kp COMMA  &lt 4 Z           &kp X           &kp C                 &kp D      &kp V        &kp K     &kp H      &under2pipe           &exc2que        &slash2backslash_game 1 0  &kp PERIOD
+                                             &mt LEFT_CONTROL RET  &lt 2 TAB  &kp SPACE    &kp BSPC  &lt 2 DEL  &mt LEFT_CONTROL ESC
             >;
         };
 
@@ -161,7 +181,7 @@
             bindings = <
               &kp Q             &kp W           &kp U   &kp G   &kp X        &kp SEMI  &kp K   &kp E     &kp DOT         &sha2shya
               &mt LEFT_SHIFT F  &mt LEFT_ALT H  &kp C   &kp N   &kp L        &kp R     &kp Y   &kp T     &mt LEFT_ALT B  &mt LEFT_SHIFT J
-&kp QUESTION  &kp Z             &kp LBKT        &kp P   &kp D   &kp COMMA    &kp S     &kp V   &kp APOS  &kp A           &soft2hard        &kp SLASH
+&kp QUESTION  &lt 4 Z           &kp LBKT        &kp P   &kp D   &kp COMMA    &kp S     &kp V   &kp APOS  &kp A           &soft2hard_game 1 0  &kp SLASH
                                                 &trans  &trans  &trans       &trans    &trans  &trans
             >;
         };
