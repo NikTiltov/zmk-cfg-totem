@@ -161,10 +161,10 @@
 
         game {
             bindings = <
-           &trans  &trans  &trans   &trans       &trans    &trans  &trans    &trans      &trans     &trans
-           &kp A   &trans  &trans   &trans       &trans    &trans  &kp LEFT  &kp UP      &kp RIGHT  &kp O
-&kp COMMA  &kp Z   &trans  &trans   &trans       &trans    &trans  &trans    &kp DOWN    &trans     &slash2backslash  &kp PERIOD
-                           &kp RET  &kp LG(TAB)  &trans    &trans  &kp DEL   &kp ESCAPE
+           &trans  &trans  &trans   &trans   &trans    &trans  &trans    &trans      &trans     &trans
+           &kp A   &trans  &trans   &trans   &trans    &trans  &kp LEFT  &kp UP      &kp RIGHT  &kp O
+&kp COMMA  &kp Z   &trans  &trans   &trans   &trans    &trans  &trans    &kp DOWN    &trans     &slash2backslash  &kp PERIOD
+                           &kp RET  &kp TAB  &trans    &trans  &kp DEL   &kp ESCAPE
             >;
         };
 
